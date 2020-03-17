@@ -2,7 +2,7 @@ NAME: Anurag Sandireddy, Ryan Riahi
 EMAIL: anurag.sandireddy@gmail.com, ryanr08@gmail.com
 ID: 805114200, 105138860
 
-gangshit.c:
+lab3a.c:
     This is our C source program that takes in a file system image file and outputs various information about
     the file, including:
         SuperBlock information
