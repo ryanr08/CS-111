@@ -1,0 +1,21 @@
+NAME: Ryan Riahi
+EMAIL: ryanr08@gmail.com
+ID: 105138860
+
+This lab was done with the BeagleBone Green along with a v1.2 temperature sensor(pin #1) and a v1.2 button(pin #60).
+
+lab4b.c: contains the source code for a program that continously logs the current temperature to stdout. Additionally, the 
+program accepts commands during execution time. Such commands can change the temperature units, the period of reporting, starting, 
+stopping, and ending the program among other things. Additionally, if a button is pressed from pin #60, the program will exit.
+
+Makefile: The makefile contains a target to compile lab4b.c into lab4b, a clean target that removes all files created by the 
+makefile, and dist target that makes the tarball, and a check target that checks to see if the application runs and can talk to 
+its sensors.
+
+README: The readme is a file containing descriptions of the files in the tarball and references.
+
+References: 
+wiki.seeedstudio.com/Grove-Temperature_Sensor_V1.2/
+iotdk.intel.com/docs/master/mraa/
+BeagleBone Tutorial: GPIO, Interrupt, Analog, and PWM
+navinbhaskar.wordpress.com/2016/07/05/cc-on-intel-edisongalileo-part5temperature-sensor/

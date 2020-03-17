@@ -1,0 +1,5 @@
+NAME: Ryan Riahi
+ID: 105138860
+EMAIL: ryanr08@gmail.com
+
+lab1a.c contains the C code for my program lab1a. The Makefile is a simple makefile with a lab1a, clean, and dist targets. lab1a sets the terminal into non-cannonical mode with no echo. Given the --shell argument lab1a passes input and output between the terminal and the shell. Overall, the project was difficult to understand at first but after working through it, it became very clear. https://www.gnu.org/software/libc/manual/html_node/Noncanon-Example.html helped me understand the basics of how to set up the non cannonical mode on the terminal, and then further API reading helped me understand how to pass input and output between the terminal and the shell. It was hard to test the software, but after completing it I simply tested if my bash commands would work and whether or not the program would exit properly.

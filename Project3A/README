@@ -1,0 +1,25 @@
+NAME: Anurag Sandireddy, Ryan Riahi
+EMAIL: anurag.sandireddy@gmail.com, ryanr08@gmail.com
+ID: 805114200, 105138860
+
+gangshit.c:
+    This is our C source program that takes in a file system image file and outputs various information about
+    the file, including:
+        SuperBlock information
+        Group information
+        Free block information
+        Free inode information
+        Inode information
+        Directory entry information
+        Indirect block reference information
+
+Makefile:
+    file to build the executable with the default target
+    Makes tar ball with dist target
+    removes files made by Makefile with clean target
+
+README
+    This README file that describes each file in the tar ball
+
+We made heavy use of the debugfs tool as well as the following website aboout ext2 file systems:
+http://www.nongnu.org/ext2-doc/ext2.html

@@ -1,0 +1,88 @@
+NAME: Ryan Riahi
+EMAIL: ryanr08@gmail.com
+ID: 105138860
+
+QUESTION 2.1.1:
+With about 5 threads and 750 iterations I noticed that the majority of the time the count would be non zero.
+
+The reason that more errors are seen with more iterations (and not necessarily more threads) is because
+more iterations creates a more likely scenario for a race condition. There can be many many threads, but
+as long as there are few iterations, the threads won't conflict with each other. However, with many iterations, 
+each thread is spending longer incrementing and decrementing the counter and as a result it is much more likely 
+that a context switch occurs in the middle of processes that one wishes were atomic. As a result, race conditions
+become a big problem and errors occur with the counter variable.
+
+
+QUESTION 2.1.2:
+
+The yield runs are much slower because the OS is constantly performing context switches between the various 
+threads, much more so than it would with simply waiting for a time slice to end. This causes a lot of overhead
+and as a result causes the program to run much slower. It would be very hard (almost impossible) to get the valid 
+per-operation timing since you would have to take into account the time taken to do a context switch. Since context 
+switches are generally very hard to measure in terms of time taken, it would be almost impossible to get a vali 
+per-operation timing.
+
+QUESTION 2.1.3:
+
+The average cost per operation drops with increasing iterations because a lot more operations are being done but with 
+the same number of threads. Thus the same number of context switches are occuring but that cost is being overshadowed by 
+the number of operations performed due to the number of iterations. Therefore, the average cost goes down. If you keep 
+increasing the number of iterations, eventually the average cost per operation will start to stay the same and represent 
+the actual cost per operation.
+
+QUESTION 2.1.4:
+
+All options perform similarly for a low number of threads because there is a lot less contention for the same resources/ 
+critical sections of code. Thus, with the protected options and few threads, each thread spends very little time waiting 
+for a critical section. However, as the number of threads rises, the contention for the critical sections of code greatly 
+rises and thus each thread has to spend a lot more time waiting for its turn to execute those sections of code.
+
+QUESTION 2.2.1:
+
+As we increase the number of threads with a mutex protected lock, the cost per operation in part 1 suffers much worse than 
+the cost per operation in part 2. This is likely due to the fact that, relative to the cost of adding and subtracting to a 
+counter, the cost of using locks has a significant impact. Whereas with part 2, the cost of locking is minimal when compared 
+to the operations that we are performing with lists (insert, lookup, delete).
+
+The reason that the the general shape of the curve for part 1 is a linear one is because locking has a direct effect on 
+the adding/subtracting operations since relative to those operations, locking has a significant impact. So the more we 
+increase the number of threads, the more locking needs to be done and the general overhead from that has a direct impact. 
+However, with part 2, the general cost per operation is more of a flat graph because the cost of locking is relatively 
+insigificant when compared to the cost of the operations performed on the list.
+
+QUESTION 2.2.2:
+
+Mutex locks seem to scale much better than spin locks. The reason for this is that, when increasing the number of threads, 
+there is more contention for the critical sections of code. Mutex locks handle this by putting a thread to sleep when it is 
+waiting for a lock to be acquired. Spin locks, on the otherhand, simply idle the cpu as they are waiting for a lock to be 
+acquired. This causes spin locks to be a lot worse when there are many threads because there will be more threads waiting for 
+a critical section of code to be available and thus this increases the time spent by each thread simply sitting there and 
+spinning idly. Both curves have a general logarithmic shape to them, but spin locks increase at a greater rate than mutex 
+locks. 
+
+lab2_add.c: source file for a multithreaded program that adds and subtracts to a general shared counter. Can either run
+with no locking mechanisms or with mutex locks, spin locks, or compare and swap locks.
+
+SortedList.h: Header file for the methods and structure of a circular, sorted, doubly linked list.
+
+SortedList.c: Implementation of the functions described in SortedList.handle
+
+lab2_list.c: Source file for a multithreaded program that inserts a number of elements to a list, looks each up, and 
+then deletes them. Can either be run with no protection at all or with mutex or spin locks. 
+
+Makefile:
+default: compiles and builds lab2_add.c and lab2_list.c (along with SortedList.c) into lab2_add and lab2_list
+tests: runs all the required tests given in the spec
+graphs: runs ./lab2_add.gp and ./lab2_list.gp to create the required graphs
+dist: creates the lab2a-105138860.tar.gz tarball
+clean: removes all the object files, executables, and tarball
+
+lab2_add.csv: csv file containing all the lab2_add outputs from running make tests
+
+lab2_list.csv: csv file containing all the lab2_list outputs from running make tests
+
+.png files: All the generated graphs from running make graphs
+
+README: File containing answers to questions and descriptions of files in tarball
+
+References: Arpaci readings

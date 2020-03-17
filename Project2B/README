@@ -1,0 +1,71 @@
+NAME: Ryan Riahi
+EMAIL: ryanr08@gmail.com
+ID: 105138860
+
+QUESTION 2.3.1
+
+I believe that most of the cycles in the tests with 1 and 2 threads are spent inserted, looking up, and deleting elements 
+from the list since those are actually fairly compelx and time consuming operations. This is likely the most expensive 
+part of the code since the functions for inserting, looking up, and deleting from a list are fairly complex, long, and 
+have lots of memory refrences and pointer handling in them. As such, they take up many cycles. However, for sping locks 
+with two threads, almsot equal time is likely spent waiting for a lock as is performing the list operations. Most of the 
+time/cycles for the spin-lock tests with a large number of threads are likely spent sitting and waiting idly for locks to 
+be released. For mutex locks, most of the cycles are still spent performing list operations since threads don't simply sit 
+there idly, rather they sleep and allow the thread with the lock to do the list operations. 
+
+QUESTION 2.3.2
+
+The lines of code with "while (__sync_lock_test_and_set(&spinlock, 1))" are specifically consuming the most time in the 
+listRoutine function call. This is especially true with a large number of threads, and the reason is that line of code is 
+what each thread does to check if the lock has been taken and, if so, tells that thread to spin the CPU idly. As a result, 
+with a large number of threads, there is a lot of contention for the critical section of code and so each thread is spending 
+more and more time sitting idly in that line of code waiting for the lock to become available. 
+
+QUESTION 2.3.3
+
+The average lock wait time rises dramatically with the number of threads because there are many more threads that are contending 
+for the lock and as a result, when a thread wants a lock, it has to wait in a longer and longer queue of threads that all want the 
+lock and are all waiting for it.
+
+The average completion time per operation rises with the number of threads since it takes them longer to complete the list operations 
+since they have to spend some time waiting for the locks. It does, however, rise less dramatically than the wait time per operation. The 
+reason for this is that the time spent waiting for the locks is not significant when compared to the time spent actually performing all 
+the list operations.
+
+QUESTION 2.3.4
+
+The performance of the synchronized methods increased with the number of lists since it allows for more parallelism to occur. Since there 
+are locks for each list, each thread spends less time waiting for a lock since there is less contention for each resource since the contention 
+is split among all the lists.
+
+Increasing the number of lists will increase throughput until the number of lists matches the number of iterations. Once that occurs, the throughput 
+will have reached its maximum and there would be no point in increasing the number of lists since it will not help with throughput.
+
+This is not the case because an N-way partitioned list spends a lot more time locking than a single list with 1/N  number of threads. 
+As a result, the N-way partitioned list will be slower than a single list with fewer than 1/N threads.
+
+
+
+SortedList.h: Header file for the methods and structure of a circular, sorted, doubly linked list.
+
+SortedList.c: Implementation of the functions described in SortedList.handle
+
+lab2_list.c: Source file for a multithreaded program that inserts a number of elements to a list, looks each up, and 
+             then deletes them. Can either be run with no protection at all or with mutex or spin locks. 
+
+Makefile:
+default: compiles and builds lab2_list.c (along with SortedList.c) into lab2_list
+tests: runs all the required tests given in the spec
+graphs: runs ./lab2_list.gp to create the required graphs
+dist: creates the lab2b-105138860.tar.gz tarball
+clean: removes all the object files, executables, and tarball
+profile: Runs the execution profiling and creates the profile.out file with the report
+
+profile.out: Execution profiling report of the lab2_list program as well as a specific breakdown of the listRoutine
+             function and how much time is spent on each line.
+
+lab2b_list.csv: csv file containing all the lab2_list outputs from running make tests
+
+.png files: All the generated graphs from running make graphs
+
+README: File containing answers to questions and descriptions of files in tarball

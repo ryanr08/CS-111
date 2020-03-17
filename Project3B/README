@@ -1,0 +1,13 @@
+NAME: Anurag Sandireddy, Ryan Riahi
+ID: 805114200, 105138860
+EMAIL: anurag.sandireddy@gmail.com, ryanr08@gmail.com
+
+gangshit.py:
+	A python program that parses through a CSV that contains data on a file system and checks whether or not there
+	are any inconsistencies between indos, blocks, bitmaps, and directories in the file system.
+
+Makefile:
+	Used to create a soft link named lab3b to the python module so that it can be executed
+
+README:
+	This file which contains descriptions of each file

@@ -1,0 +1,26 @@
+NAME: Ryan Riahi
+EMAIL: ryanr08@gmail.com
+ID: 105138860
+
+Serial Number: BBGW19010404
+MAC Address: 2CF7F106A16A
+
+my_beaglebone.jpg:
+This is a cute picture of me with my fully set up beaglebone.
+
+connected.png:
+This is a screen shot of the output of me typing my ifconfig command after having connected to wifi
+and changed my beaglebone's name.
+
+copy.png:
+This is a screen shot of me using WinSCP to copy of the HelloWorld.c file that I created on my computer
+to my beaglebone.
+
+build_run.png:
+This is a screen shot of me using gcc to compile the HelloWorld.c file and then run it.
+
+git.png:
+This is a screen shot of me cloning a random git repo I found on github onto my beaglebone.
+
+Makefile:
+This is the Makefile that I use to build the tar ball.

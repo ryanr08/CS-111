@@ -1,0 +1,20 @@
+NAME: Ryan Riahi
+EMAIL: ryanr08@gmail.com
+ID: 105138860
+
+lab4c_tcp.c:
+	Source module for a program that opens a connection to a given server and sends Beaglebone temperature 
+	readings and accepts commands. 
+lab4c_tls.c:
+	Source module for a program that opens a connection to a given server and encrypts the messages using 
+	OpenSSL. This program also sends temperature readings from the Beaglebone and accepts commands.
+
+Makefile:
+	File to build two executable programs along with a tarball that holds the source files, the makefile, and 
+	this README.
+
+README: 
+	File to describe each file in the tarball and cite any sources used to write the program
+
+
+References: cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html, openssl.org/docs/manmaster/man7/ssl.html 
