@@ -1,0 +1,11 @@
+NAME: Ryan Riahi
+EMAIL: ryanr08@gmail.com
+ID: 105138860
+
+For my smoke test I tested the script to try and obtain each of the 5 error codes
+that the script would output. I tested an unrecognized argument and checked if the
+exit code was 1. I passed in a non existant file and checked if the exit code was 2.
+I passed in an outut file that has no write access and checked if the exit code was 3.
+I passed in the --segfault and --check flags and checked if the exit code was 4.
+I then passed in valid input and output files, checked if they were equal, and if the
+exit code was 0. 
