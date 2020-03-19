@@ -5,9 +5,25 @@ ID: 105138860
 lab4c_tcp.c:
 	Source module for a program that opens a connection to a given server and sends Beaglebone temperature 
 	readings and accepts commands. 
+	Accepts the following parameters:
+		--period=#
+		--scale= ('C' or 'F')
+		--id=9-digit-number (mandatory)
+		--host=name or address (mandatory)
+		--log=filename (mandatory)
+		port number (mandatory)
+
 lab4c_tls.c:
 	Source module for a program that opens a connection to a given server and encrypts the messages using 
 	OpenSSL. This program also sends temperature readings from the Beaglebone and accepts commands.
+	
+	Accepts the following parameters:
+		--period=#
+		--scale= ('C' or 'F')
+		--id=9-digit-number (mandatory)
+		--host=name or address (mandatory)
+		--log=filename (mandatory)
+		port number (mandatory)
 
 Makefile:
 	File to build two executable programs along with a tarball that holds the source files, the makefile, and 
