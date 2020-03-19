@@ -8,6 +8,11 @@ lab4b.c: contains the source code for a program that continously logs the curren
 program accepts commands during execution time. Such commands can change the temperature units, the period of reporting, starting, 
 stopping, and ending the program among other things. Additionally, if a button is pressed from pin #60, the program will exit.
 
+  Accepts the following commands:
+    --period=#
+    --scale="F|C"
+    --log=<filename>
+
 Makefile: The makefile contains a target to compile lab4b.c into lab4b, a clean target that removes all files created by the 
 makefile, and dist target that makes the tarball, and a check target that checks to see if the application runs and can talk to 
 its sensors.
