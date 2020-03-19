@@ -52,6 +52,12 @@ SortedList.c: Implementation of the functions described in SortedList.handle
 
 lab2_list.c: Source file for a multithreaded program that inserts a number of elements to a list, looks each up, and 
              then deletes them. Can either be run with no protection at all or with mutex or spin locks. 
+             Accepts the following commands:
+             --threads=#
+             --iterations=#
+             --yield   (to attempt to cause multithreads undefined behavior)
+             --sync    (to use semaphore locks)
+             --lists=#
 
 Makefile:
 default: compiles and builds lab2_list.c (along with SortedList.c) into lab2_list
