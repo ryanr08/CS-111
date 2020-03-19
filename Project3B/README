@@ -3,7 +3,7 @@ ID: 805114200, 105138860
 EMAIL: anurag.sandireddy@gmail.com, ryanr08@gmail.com
 
 lab3a.py:
-	A python program that parses through a CSV that contains data on a file system and checks whether or not there
+	A python program that parses through a (passed in) CSV that contains data on a file system and checks whether or not there
 	are any inconsistencies between indos, blocks, bitmaps, and directories in the file system.
 
 Makefile:
