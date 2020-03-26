@@ -5,13 +5,18 @@ EMAIL: ryanr08@gmail.com
 lab1b-client.c contains the C code for my client program while
 lab1b-server.c contains the C code for my server program.
 The Makefile is a simple makefile with a lab1b-client, lab1b-server, clean, 
-default, and dist targets. lab1b-client sets the terminal into non-cannonical mode with no echo.
+default, and dist targets. 
+lab1b-client sets the terminal into non-cannonical mode with no echo.
 lab1b-server sets up a socket and waits for a connection from a port (specified with the --port=# command).
+
 Once a connection is established, data from the client will be sent to the server, then passed to /bin/bash
 on the server side. The output from the shell is then sent from the server, through the socket, to the client, 
-which displays it to stdout. Given the --log=filename argument to lab1b-client, all data that is sent through 
+which displays it to stdout. 
+
+Given the --log=filename argument to lab1b-client, all data that is sent through 
 or recieved from the server will be written to the file. Lastly, given the --compress argument, all data sent 
 through any of the sockets will first be compressed, and then decompressed before being read.
+
 Overall, the lab was not too bad. Setting up the TCP connection and the pipes to the shell was fairly easy
 considering the last project we did. However, the compression part took the longest for me since it was rather 
 hard to debug and I did not know why it was not working for a very long time. As a result, I had to try 
